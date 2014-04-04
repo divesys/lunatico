@@ -33,83 +33,51 @@
 using UnityEngine;
 using System.Collections;
 
-public class SlideSkill : MonoBehaviour {
+public class SlideSkill : BaseSkill {
 	
 	public float velocidadeSlide; // velocidade do slide
-	public MonoBehaviour[] componentesDesabilitar; // desabilita componentes enquanto executa o slide
 	private bool pisandoChao; // indica se o objeto esta no chao
-	private bool sliding; // slide em execuçao
 	public Sprite spriteSlide; // sprite do slide
 	public Vector2 tamanhoSlideCollider; // tamanho padrao do collider
 	private Vector2 tamanhoOriginalCollider; // tamanho do collider enquanto executa o slide
-
-	// variaveis adicionadas 30/03/2014 >> utilizadas para verificar e aplicar a fase da lua correta
-	static public bool skillSlideAdquirida;  // verifica se a skill foi adiquirida
-	static public bool faseCorretaSlide; // caso tenha sido adiquirida, verifica se esta na fase correta
-	static private string faseDaLuaAtual;
-	// variaveis adicionadas 30/03/2014 >> utilizadas para verificar e aplicar a fase da lua correta
-		
+	
 	void Start () {
 		this.tamanhoOriginalCollider = GetComponent<BoxCollider2D>().size;
-		skillSlideAdquirida = true ;// adicionado 30/03/2014
 	}
 	
-	void Update () {
-
-		faseDaLuaAtual = simuladorDaFaseDaLua.faseDaLuaSimulada;
-		
-		if(faseDaLuaAtual == "nova") // se a lua eh minguante
-		{
-			
-			faseCorretaSlide= true;
-			
-		}
-		
-		else
-		{
-			
-			faseCorretaSlide = false;
-			
-		}
-
-		if (sliding && rigidbody2D.velocity == Vector2.zero)
-		{
-			StopSlide();
-		}
-		
-		if (pisandoChao && !sliding && rigidbody2D.velocity != Vector2.zero && Input.GetButtonDown("skill") && faseCorretaSlide == true) // modifiquei 30/03/2014 >>> troquei o botao de acao pelo botao de skill
-		{
-			Slide();
-		}
-		
+	protected override void Execute()
+	{
+		Slide();
 	}
-
+	
+	protected override bool ValidateStopExecution()
+	{
+		return IsStatic();
+	}
+	
+	protected override bool ValidateExecution()
+	{
+		return base.ValidateExecution() && pisandoChao && !IsStatic();
+	}
+	
 	private void Slide()
 	{
-		sliding = true;
-
 		float direcao = Input.GetAxis ("Horizontal");
 		rigidbody2D.AddForce(Vector2.right * velocidadeSlide * direcao);
 		
-		this.GetComponent<SpriteRenderer>().sprite = spriteSlide;		
-		AlterarAtividadeComponentes(false);		
+		this.GetComponent<SpriteRenderer>().sprite = spriteSlide;
 		GetComponent<BoxCollider2D>().size = tamanhoSlideCollider;	
 	}
-
-	private void StopSlide()
+	
+	protected override void PosExecute()
 	{
-		sliding = false;
-		
-		AlterarAtividadeComponentes(true);
+		base.PosExecute();
 		GetComponent<BoxCollider2D>().size = tamanhoOriginalCollider;
 	}
-
-	private void AlterarAtividadeComponentes(bool ativo)
+	
+	private bool IsStatic()
 	{
-		foreach (MonoBehaviour componente in componentesDesabilitar)
-		{
-			componente.enabled = ativo;
-		}
+		return rigidbody2D.velocity == Vector2.zero;
 	}
 	
 	void OnCollisionEnter2D (Collision2D other)
