@@ -570,7 +570,7 @@ MonoBehaviour:
   - {fileID: 682563314}
   - {fileID: 682563307}
   TimeoutExecuting: 0
-  MoonPhase: minguante
+  MoonPhase: cheia
   StopAfterTime: 0
   velocidadeSlide: 10
   spriteSlide: {fileID: 21300000, guid: 0d0dd77fd9393f94cbb210a5ceebc6d4, type: 3}
