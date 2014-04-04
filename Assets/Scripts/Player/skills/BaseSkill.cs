@@ -66,7 +66,7 @@ public abstract class BaseSkill : MonoBehaviour {
 	
 	protected virtual bool ValidateExecution()
 	{
-		return (Input.GetButtonDown("skill")) && (DetectarFaseDaLua.faseDaLua.Equals(MoonPhase));
+		return (Input.GetButtonDown("skill")) && (simuladorDaFaseDaLua.faseDaLuaSimulada.Equals(MoonPhase));
 	}
 	
 	private void ChangeActivitiesComponents(bool enabled)
