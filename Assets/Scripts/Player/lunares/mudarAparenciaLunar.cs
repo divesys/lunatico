@@ -50,7 +50,7 @@ public class mudarAparenciaLunar : MonoBehaviour // script de teste para mudar o
 
 			SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
 			Sprite spriteLua = new Sprite();
-			spriteLua = Resources.Load<Sprite>("sprites/luaNova");
+			spriteLua = Resources.Load<Sprite>("sprites/nova");
 			spriteRender.sprite = spriteLua;
 
 		}
@@ -60,7 +60,7 @@ public class mudarAparenciaLunar : MonoBehaviour // script de teste para mudar o
 			
 			SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
 			Sprite spriteLua = new Sprite();
-			spriteLua = Resources.Load<Sprite>("sprites/luaCrescente");
+			spriteLua = Resources.Load<Sprite>("sprites/crescente");
 			spriteRender.sprite = spriteLua;
 			
 		}
@@ -70,7 +70,7 @@ public class mudarAparenciaLunar : MonoBehaviour // script de teste para mudar o
 			
 			SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
 			Sprite spriteLua = new Sprite();
-			spriteLua = Resources.Load<Sprite>("sprites/luaCheia");
+			spriteLua = Resources.Load<Sprite>("sprites/cheia");
 			spriteRender.sprite = spriteLua;
 			
 		}
@@ -80,7 +80,7 @@ public class mudarAparenciaLunar : MonoBehaviour // script de teste para mudar o
 			
 			SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
 			Sprite spriteLua = new Sprite();
-			spriteLua = Resources.Load<Sprite>("sprites/luaMinguante");
+			spriteLua = Resources.Load<Sprite>("sprites/minguante");
 			spriteRender.sprite = spriteLua;
 			
 		}
