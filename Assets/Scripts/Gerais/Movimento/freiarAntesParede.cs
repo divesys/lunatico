@@ -49,7 +49,7 @@ public class freiarAntesParede : MonoBehaviour // classe para desacelarar antes 
 
 	void Start ()
 	{
-		centroCampoVisao = 18.72f;
+		centroCampoVisao = 19.5f;
 		razaoReducao = 50f;
 		velocidadeMaxima = 6;
 	}
@@ -92,8 +92,14 @@ public class freiarAntesParede : MonoBehaviour // classe para desacelarar antes 
 
 	void FixedUpdate()
 	{
-
-		valorHorizontal = SensoDeDirecao.ValorDirecaoHorizontal(); //pega o valor da direcao, -1 pra esquerda e 1 para direita
+		if(this.transform.parent.localScale.x > 0)
+		{
+			valorHorizontal = SensoDeDirecao.ValorDirecaoHorizontal(); //pega o valor da direcao, -1 pra esquerda e 1 para direita
+		}
+		else if(this.transform.parent.localScale.x < 0) // ajusta espalhamento de direcao, pois o valor do colisor eh negativo em relacao ao sprite
+		{
+			valorHorizontal = SensoDeDirecao.ValorDirecaoHorizontal() * -1; //pega o valor da direcao, -1 pra esquerda e 1 para direita
+		}
 		BoxCollider2D b2d = this.GetComponent<BoxCollider2D>(); // captura o componente boxCollider2D
 		b2d.center = new Vector2(centroCampoVisao * valorHorizontal,0); //posiciona o campo de visao
 		
