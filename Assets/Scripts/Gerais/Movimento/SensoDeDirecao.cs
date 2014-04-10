@@ -38,6 +38,7 @@ public class SensoDeDirecao : MonoBehaviour {
 	public static string direcaoHorizontal;// direcao horzionatl do personagem (na forma de string)
 	public static int valorHorizontal;// direcao horzionatl do personagem (na forma de int)
 
+
 	public static string VerificaDirecaoHorizontal() // retorna a direcao horizontal na forma esquerda ou direita
 	{
 		if(Input.GetAxis ("Horizontal") < 0) // se o botao pra esquerda for apertado

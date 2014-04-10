@@ -403,8 +403,10 @@ GameObject:
   - 114: {fileID: 682563317}
   - 114: {fileID: 682563318}
   - 114: {fileID: 682563319}
+  - 114: {fileID: 682563320}
+  - 95: {fileID: 682563321}
   m_Layer: 0
-  m_Name: Sra_Lua
+  m_Name: Luna
   m_TagString: player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -470,7 +472,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 2.55999994, y: 2.55999994}
+  m_Size: {x: .800000012, y: 1.60000002}
   m_Center: {x: 0, y: 0}
 --- !u!212 &682563311
 SpriteRenderer:
@@ -493,7 +495,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_SortingLayerID: 0
-  m_Sprite: {fileID: 21300000, guid: 33a050a91f6c7cd4d9d1a89524e06220, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d58ce734aab3314f9399ee3894916b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &682563312
 Transform:
@@ -502,7 +504,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 682563305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.790411, y: 3.727355, z: 0}
+  m_LocalPosition: {x: 17.7614212, y: 3.3186965, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1674795290}
@@ -601,6 +603,34 @@ MonoBehaviour:
   TimeoutExecuting: 5
   MoonPhase: nova
   StopAfterTime: 1
+--- !u!114 &682563320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682563305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7d8503258ade74e8039c90621b8293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleSpriteX: 0
+  scaleSpriteY: 0
+  scaleSpriteZ: 0
+--- !u!95 &682563321
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 682563305}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1bda8dbe97d8d40449f7141958b4b7ff, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 0
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!1 &725091021
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +851,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1105630965}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.84258497, y: -.120538935, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 8.53351593, y: 1.48836553, z: 1}
   m_Children: []
   m_Father: {fileID: 682563312}
@@ -1202,8 +1232,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 40, y: 2.55999994}
-  m_Center: {x: 18.7199993, y: 0}
+  m_Size: {x: 40, y: 1.60000002}
+  m_Center: {x: -19.6000004, y: 0}
 --- !u!114 &1674795292
 MonoBehaviour:
   m_ObjectHideFlags: 0

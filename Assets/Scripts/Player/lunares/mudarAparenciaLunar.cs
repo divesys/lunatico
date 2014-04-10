@@ -37,8 +37,14 @@ public class mudarAparenciaLunar : MonoBehaviour // script de teste para mudar o
 {
 	public string faseDaLuaAtual;
 	public string faseDaLuaSimulada;
+	public Animator anim;
 
+	void Start()
+	{
 
+		anim = GetComponent<Animator>();
+
+	}
 	// Update is called once per frame
 	void FixedUpdate () 
 	{
@@ -48,40 +54,44 @@ public class mudarAparenciaLunar : MonoBehaviour // script de teste para mudar o
 		if(faseDaLuaAtual == "nova")
 		{
 
-			SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
+			/*SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
 			Sprite spriteLua = new Sprite();
 			spriteLua = Resources.Load<Sprite>("sprites/luaNovaParada");
-			spriteRender.sprite = spriteLua;
+			spriteRender.sprite = spriteLua;*/
+			anim.SetInteger("faseDaLua", 0);
 
 		}
 
 		if(faseDaLuaAtual == "crescente")
 		{
 			
-			SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
+			/*SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
 			Sprite spriteLua = new Sprite();
 			spriteLua = Resources.Load<Sprite>("sprites/luaCrescenteParada");
-			spriteRender.sprite = spriteLua;
+			spriteRender.sprite = spriteLua;*/
+			anim.SetInteger("faseDaLua", 1);
 			
 		}
 
 		if(faseDaLuaAtual == "cheia")
 		{
 			
-			SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
+			/*SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
 			Sprite spriteLua = new Sprite();
 			spriteLua = Resources.Load<Sprite>("sprites/luaCheiaParada");
-			spriteRender.sprite = spriteLua;
+			spriteRender.sprite = spriteLua;*/
+			anim.SetInteger("faseDaLua", 2);
 			
 		}
 
 		if(faseDaLuaAtual == "minguante")
 		{
 			
-			SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
+			/*SpriteRenderer spriteRender = this.GetComponent<SpriteRenderer>();
 			Sprite spriteLua = new Sprite();
 			spriteLua = Resources.Load<Sprite>("sprites/luaMinguanteParada");
-			spriteRender.sprite = spriteLua;
+			spriteRender.sprite = spriteLua;*/
+			anim.SetInteger("faseDaLua", 3);
 			
 		}
 

@@ -36,12 +36,23 @@ using System.Collections;
 public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento horizontal
 {
 	public float forcaHorizontal = 0.45f; // forca que move o objeto horizontalmente
-	
+
+	public Animator anim;
+	public float velocidadeXFloat;
+	public int velocidadeXInt;
+
+	void Start()
+	{
+
+		anim = GetComponent<Animator>();
+
+	}
+
 	void FixedUpdate()
 	{
 		if(Input.GetButton("Sprint")) // se o botao de sprint for apertado
 		{
-			forcaHorizontal = 0.6f; // forca para velocidade do sprint, aproximadamente 10 m/s
+			//forcaHorizontal = 0.6f; // forca para velocidade do sprint, aproximadamente 10 m/s
 		}
 
 		else //velocidade normal
@@ -50,6 +61,11 @@ public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento ho
 		}
 		float direcao = Input.GetAxis ("Horizontal"); // pega o eixo horizontal de movimento
 		rigidbody2D.AddForce(Vector2.right * forcaHorizontal * direcao); // aplica forca na direcao apertada, movendo o objeto
+
+		velocidadeXFloat = this.transform.rigidbody2D.velocity.x;
+		velocidadeXInt = (int) velocidadeXFloat;
+
+		anim.SetInteger("velocidade", velocidadeXInt);
 
 	}
 }
