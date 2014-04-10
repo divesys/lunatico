@@ -34,7 +34,7 @@ public class EnemyShooter : MonoBehaviour {
 		
 		foreach (Collider2D collider in colliders)
 		{
-			if (collider.tag.Equals("player"))
+			if (collider.tag.Equals("Player"))
 			{
 				return true;
 			}
@@ -51,7 +51,7 @@ public class EnemyShooter : MonoBehaviour {
 	
 	private bool PlayerIsVisible()
 	{
-		GameObject player = GameObject.FindGameObjectWithTag("player");
+		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		return !player.GetComponent<InvisibilitySkill>().IsExecuting();
 	}
 	

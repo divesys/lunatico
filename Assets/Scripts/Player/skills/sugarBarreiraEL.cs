@@ -49,7 +49,7 @@ public class sugarBarreiraEL : MonoBehaviour
 	void OnTriggerStay2D(Collider2D other) 
 	{
 		
-		if(other.CompareTag("player"))
+		if(other.CompareTag("Player"))
 		{
 			//Debug.Log(other.name);
 			if(controleELSkill.skillControleELDisponivel == true && Input.GetButtonDown("skill"))

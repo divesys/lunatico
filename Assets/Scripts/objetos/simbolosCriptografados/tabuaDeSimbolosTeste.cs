@@ -77,7 +77,7 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other) 
 	{
 
-		if(other.CompareTag("player"))
+		if(other.CompareTag("Player"))
 		{
 
 			dentroDaRegiao = true;
@@ -89,7 +89,7 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 	void OnTriggerExit2D(Collider2D other)
 	{
 		
-		if(other.CompareTag("player"))
+		if(other.CompareTag("Player"))
 		{
 			
 			dentroDaRegiao = false;
@@ -102,7 +102,7 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 	void OnTriggerStay2D(Collider2D other)
 	{
 
-		if(other.CompareTag("player")) //verifica se consegue ler o texto criptografado
+		if(other.CompareTag("Player")) //verifica se consegue ler o texto criptografado
 		{
 
 			if(analiseSkill.skillAnaliseAtivada == false)

@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		player = GameObject.FindGameObjectWithTag("player");
+		player = GameObject.FindGameObjectWithTag("Player");
 		transform.LookAt(player.transform);
 	}
 	
