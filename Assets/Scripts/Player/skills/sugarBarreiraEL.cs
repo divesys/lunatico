@@ -51,10 +51,10 @@ public class sugarBarreiraEL : MonoBehaviour
 		
 		if(other.CompareTag("Player"))
 		{
-			//Debug.Log(other.name);
+			Debug.Log(other.name);
 			if(controleELSkill.skillControleELDisponivel == true && Input.GetButtonDown("skill"))
 			{
-				//Debug.Log ("foi");
+				Debug.Log ("foi");
 				Destroy(transform.parent.gameObject);
 
 			}
