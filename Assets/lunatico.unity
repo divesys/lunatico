@@ -448,6 +448,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forcaHorizontal: .400000006
+  anim: {fileID: 0}
+  velocidadeXFloat: 0
+  velocidadeXInt: 0
 --- !u!50 &682563309
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -534,6 +537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   faseDaLuaAtual: 
   faseDaLuaSimulada: 
+  anim: {fileID: 0}
 --- !u!114 &682563315
 MonoBehaviour:
   m_ObjectHideFlags: 0
