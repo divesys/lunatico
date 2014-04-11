@@ -18,18 +18,22 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 6afc7fb871e12fc44a78e7c4f82582f5, type: 3}
-    - time: .25
       value: {fileID: 21300000, guid: 4d58ce734aab3314f9399ee3894916b5, type: 3}
+    - time: .166666672
+      value: {fileID: 21300000, guid: 6afc7fb871e12fc44a78e7c4f82582f5, type: 3}
+    - time: .333333343
+      value: {fileID: 21300000, guid: 8292b54ffb5798645a15c218e4b6c68a, type: 3}
     - time: .5
+      value: {fileID: 21300000, guid: fa38ea1d217b31a46bbe69bb086de95e, type: 3}
+    - time: .666666687
+      value: {fileID: 21300000, guid: 8292b54ffb5798645a15c218e4b6c68a, type: 3}
+    - time: .833333313
       value: {fileID: 21300000, guid: 6afc7fb871e12fc44a78e7c4f82582f5, type: 3}
-    - time: .75
-      value: {fileID: 21300000, guid: 4d58ce734aab3314f9399ee3894916b5, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 4
+  m_SampleRate: 6
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -53,4 +57,11 @@ AnimationClip:
     m_Mirror: 0
   m_EditorCurves: []
   m_EulerEditorCurves: []
-  m_Events: []
+  m_Events:
+  - time: .5
+    functionName: 
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
