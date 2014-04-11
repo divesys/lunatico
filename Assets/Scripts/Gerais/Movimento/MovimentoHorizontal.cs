@@ -38,13 +38,17 @@ public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento ho
 	public float forcaHorizontal = 0.45f; // forca que move o objeto horizontalmente
 
 	public Animator anim;
-	public float velocidadeXFloat;
-	public int velocidadeXInt;
+	public bool andando;
+	public float limiteEstatica; //velocidade limite para considerar que o objeto nao esta mais parado
+	public float velocidadeX;
+	//public int velocidadeXInt;
 
 	void Start()
 	{
 
 		anim = GetComponent<Animator>();
+		limiteEstatica = 0.45f;
+		andando = false;
 
 	}
 
@@ -62,10 +66,26 @@ public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento ho
 		float direcao = Input.GetAxis ("Horizontal"); // pega o eixo horizontal de movimento
 		rigidbody2D.AddForce(Vector2.right * forcaHorizontal * direcao); // aplica forca na direcao apertada, movendo o objeto
 
-		velocidadeXFloat = this.transform.rigidbody2D.velocity.x;
-		velocidadeXInt = (int) velocidadeXFloat;
+		velocidadeX = this.transform.rigidbody2D.velocity.x;
+		//velocidadeXInt = (int) velocidadeXFloat;
 
-		anim.SetInteger("velocidade", velocidadeXInt);
+
+		if(velocidadeX > limiteEstatica || velocidadeX < (limiteEstatica*-1))
+		{
+
+			andando = true;
+
+		}
+
+		else
+		{
+
+			andando = false;
+
+		}
+
+		//anim.SetInteger("velocidade", velocidadeXInt);
+		anim.SetBool("andando",andando);
 
 	}
 }
