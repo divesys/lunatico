@@ -35,31 +35,64 @@ using System.Collections;
 
 public class sugarBarreiraEL : MonoBehaviour 
 {
+	public bool dentroDaRegiao; // verifica se esta dentro da regiao do objeto
+	public Collider2D colisorPlayer;
 
-	// Use this for initialization
-	void Start () {
+	void OnTriggerEnter2D(Collider2D other) 
+	{
+		
+		if(other.CompareTag("Player"))
+		{
+			
+			dentroDaRegiao = true;
+			colisorPlayer = other;
+			
+		}
+		
+	}
+
+	// Update is called once per frame
+	void Update () 
+	{
+
+		if(dentroDaRegiao == true)
+		{
+			
+			if(colisorPlayer.CompareTag("Player")) //verifica se consegue ler o texto criptografado
+			{
+
+				if(controleELSkill.skillControleELDisponivel == true && Input.GetButtonDown("skill"))
+				{
+
+					Debug.Log ("foi");
+					Destroy(transform.parent.gameObject);
+					
+				}
+
+			}
+			
+		}
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	void OnTriggerExit2D(Collider2D other)
+	{
+		
+		
+		if(other.CompareTag("Player"))
+		{
+			
+			dentroDaRegiao = false;
+			colisorPlayer = null;
+			
+		}
+		
 	}
 
 	void OnTriggerStay2D(Collider2D other) 
 	{
 		
-		if(other.CompareTag("Player"))
-		{
-			Debug.Log(other.name);
-			if(controleELSkill.skillControleELDisponivel == true && Input.GetButtonDown("skill"))
-			{
-				Debug.Log ("foi");
-				Destroy(transform.parent.gameObject);
 
-			}
-			
-		}
 		
 	}
 }

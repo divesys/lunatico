@@ -44,6 +44,7 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 	public float alturaCaixa; // altura da caixa de texto
 	public float posicaoXCaixa; // posicao da caixa, em x
 	public float posicaoYCaixa; // posicao da caixa, em y
+	public Collider2D colisorPlayer;
 	
 	void Start() //incializa valores
 	{
@@ -53,6 +54,19 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 		lendoTexto = false;
 	}
 
+	void OnTriggerEnter2D(Collider2D other) 
+	{
+		
+		if(other.CompareTag("Player"))
+		{
+			
+			dentroDaRegiao = true;
+			colisorPlayer = other;
+			
+		}
+		
+	}
+	
 	void Update() // invoca ou dispensa a caixa de menssagem
 	{
 
@@ -70,17 +84,27 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 			
 		}
 
-	}
-
-	// verifica se esta proximo do objeto que deseja ler
-
-	void OnTriggerEnter2D(Collider2D other) 
-	{
-
-		if(other.CompareTag("Player"))
+		if(dentroDaRegiao == true)
 		{
 
-			dentroDaRegiao = true;
+			if(colisorPlayer.CompareTag("Player")) //verifica se consegue ler o texto criptografado
+			{
+				
+				if(analiseSkill.skillAnaliseAtivada == false)
+				{
+					
+					consegueLer = false;
+					
+				}
+				
+				else if(analiseSkill.skillAnaliseAtivada == true )
+				{
+					
+					consegueLer = true;
+					
+				}
+				
+			}
 
 		}
 
@@ -89,38 +113,16 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 	void OnTriggerExit2D(Collider2D other)
 	{
 		
+		
 		if(other.CompareTag("Player"))
 		{
 			
 			dentroDaRegiao = false;
 			lendoTexto = false; // ao sair do objeto, para de ler o texto
+			colisorPlayer = null;
 			
 		}
 		
-	}
-
-	void OnTriggerStay2D(Collider2D other)
-	{
-
-		if(other.CompareTag("Player")) //verifica se consegue ler o texto criptografado
-		{
-
-			if(analiseSkill.skillAnaliseAtivada == false)
-			{
-
-				consegueLer = false;
-
-			}
-
-			else if(analiseSkill.skillAnaliseAtivada == true )
-			{
-
-				consegueLer = true;
-
-			}
-
-		}
-
 	}
 
 	void OnGUI()

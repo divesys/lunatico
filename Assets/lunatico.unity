@@ -407,7 +407,7 @@ GameObject:
   - 95: {fileID: 682563321}
   m_Layer: 0
   m_Name: Luna
-  m_TagString: player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

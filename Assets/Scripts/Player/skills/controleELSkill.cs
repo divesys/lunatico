@@ -46,7 +46,6 @@ public class controleELSkill : MonoBehaviour // uma skill que controla o fluxo d
 	
 	void Start()
 	{
-		Debug.Log ("oi");
 		skillControleELAdquirida = true;
 		skillControleELDisponivel = false;
 		

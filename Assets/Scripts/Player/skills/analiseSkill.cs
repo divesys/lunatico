@@ -55,6 +55,7 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 	void Update() 
 	{
 
+
 		faseDaLuaAtual = simuladorDaFaseDaLua.faseDaLuaSimulada;
 
 		if(faseDaLuaAtual == "crescente") // se a analise foi adquirida e eh lua cheia
@@ -96,8 +97,6 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 			skillAnaliseAtivada = false;
 
 		}
-
-		//Debug.Log (skillAnaliseAtivada);
 
 	}
 

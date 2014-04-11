@@ -51,8 +51,10 @@ public class EnemyShooter : MonoBehaviour {
 	
 	private bool PlayerIsVisible()
 	{
+
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
 		return !player.GetComponent<InvisibilitySkill>().IsExecuting();
+
 	}
 	
 }
