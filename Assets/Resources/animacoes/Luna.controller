@@ -26,6 +26,18 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: puxandoEL
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: iniciarAnimacaoPuxandoEL
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -96,6 +108,28 @@ Transition:
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
+--- !u!1101 &110122757
+Transition:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110206754}
+  m_DstState: {fileID: 110270500}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: iniciarAnimacaoPuxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: puxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: 1
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
 --- !u!1101 &110137451
 Transition:
   m_ObjectHideFlags: 3
@@ -131,6 +165,14 @@ Transition:
     m_ExitTime: .899999976
   - m_ConditionMode: 2
     m_ConditionEvent: andando
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: iniciarAnimacaoPuxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: puxandoEL
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -177,6 +219,24 @@ Transition:
     m_ConditionEvent: andando
     m_EventTreshold: 0
     m_ExitTime: .899999976
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+--- !u!1101 &110181919
+Transition:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110270500}
+  m_DstState: {fileID: 110290652}
+  m_TransitionDuration: .25
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: puxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: .75
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -303,6 +363,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110270500
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: lunaPuxandoELInicio
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 312ad1f3a0b70b74fb8281c69b95db6f, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 372, y: 0, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110277760
 State:
   m_ObjectHideFlags: 3
@@ -315,6 +390,21 @@ State:
   - {fileID: 7400000, guid: f339cc85b2e917543bf48a9651c33e6a, type: 2}
   m_ParentStateMachine: {fileID: 110700000}
   m_Position: {x: 24, y: 12, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
+--- !u!1102 &110290652
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: lunaPuxandoELFinal
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: b12a131a95360a04bbf62101d214c9cb, type: 2}
+  m_ParentStateMachine: {fileID: 110700000}
+  m_Position: {x: 540, y: -96, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
@@ -351,6 +441,8 @@ StateMachine:
   - {fileID: 110206754}
   - {fileID: 110209309}
   - {fileID: 110254528}
+  - {fileID: 110290652}
+  - {fileID: 110270500}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
@@ -385,6 +477,7 @@ StateMachine:
       first: {fileID: 110206754}
       second:
       - {fileID: 110137451}
+      - {fileID: 110122757}
     data:
       first: {fileID: 110209309}
       second:
@@ -392,6 +485,13 @@ StateMachine:
     data:
       first: {fileID: 110254528}
       second: []
+    data:
+      first: {fileID: 110290652}
+      second: []
+    data:
+      first: {fileID: 110270500}
+      second:
+      - {fileID: 110181919}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 48, y: 96, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

@@ -44,10 +44,21 @@ public class controleELSkill : MonoBehaviour // uma skill que controla o fluxo d
 	static public bool skillControleELDisponivel; // verifica se a skill esta disponivel para utilizar
 	static private string faseDaLuaAtual;
 	
+	static public bool puxandoEL; //avisa que esta sendo puxado EL
+	static public bool iniciarPuxandoELInicio; //avisa para inicar a animacao lunaPuxandoELinicio 
+	public bool iniciarPuxandoELFinal; //avisa para manter a animacao
+
+	public Animator anim;
+	
 	void Start()
 	{
+
+		anim = GetComponent<Animator>();
 		skillControleELAdquirida = true;
 		skillControleELDisponivel = false;
+		puxandoEL = false;
+		iniciarPuxandoELFinal = false;
+		iniciarPuxandoELFinal = false;
 		
 	}
 	
@@ -83,12 +94,51 @@ public class controleELSkill : MonoBehaviour // uma skill que controla o fluxo d
 			skillControleELDisponivel = false;
 			
 		}
-		//Debug.Log (faseDaLuaAtual);
-		//Debug.Log (skillControleELDisponivel);
-		//Debug.Log (faseCorretaControleEL);
-		//Debug.Log (skillControleELAdquirida);
+
+		if(iniciarPuxandoELFinal == true)
+		{
+
+			puxandoEL = true;
+
+		}
+
+		if(iniciarPuxandoELFinal == true)
+		{
+
+			iniciarPuxandoELInicio = false;
+
+		}
+
+		anim.SetBool("iniciarAnimacaoPuxandoEL", iniciarPuxandoELInicio);
+		anim.SetBool("puxandoEL", puxandoEL);
+
+	}
+
+	static public void setPuxandoEL(bool check)
+	{
+
+		puxandoEL = check;
+
+	}
+
+	static public bool getPuxandoEL()
+	{
+		
+		return puxandoEL;
+		
+	}
+
+	static public void setIniciarPuxandoELInicio (bool check)
+	{
+		
+		iniciarPuxandoELInicio = check;
+		
 	}
 	
-	
-	
+	static public bool getIniciarPuxandoELInicio()
+	{
+		
+		return iniciarPuxandoELInicio;
+		
+	}
 }

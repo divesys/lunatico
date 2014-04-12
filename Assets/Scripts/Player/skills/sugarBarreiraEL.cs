@@ -37,6 +37,10 @@ public class sugarBarreiraEL : MonoBehaviour
 {
 	public bool dentroDaRegiao; // verifica se esta dentro da regiao do objeto
 	public Collider2D colisorPlayer;
+	public int vitalidadeBarreiraEL; // o quanto de EL tem na barreira
+	public int decaimentoBarreiraEl; // o quanto de EL e retirado da barreira por frame
+
+	public Animator anim;
 
 	void OnTriggerEnter2D(Collider2D other) 
 	{
@@ -46,6 +50,7 @@ public class sugarBarreiraEL : MonoBehaviour
 			
 			dentroDaRegiao = true;
 			colisorPlayer = other;
+			vitalidadeBarreiraEL = 10;
 			
 		}
 		
@@ -61,12 +66,44 @@ public class sugarBarreiraEL : MonoBehaviour
 			if(colisorPlayer.CompareTag("Player")) //verifica se consegue ler o texto criptografado
 			{
 
-				if(controleELSkill.skillControleELDisponivel == true && Input.GetButtonDown("skill"))
+				if(controleELSkill.skillControleELDisponivel == true && Input.GetButton("skill"))
 				{
 
-					Debug.Log ("foi");
-					Destroy(transform.parent.gameObject);
+					if(controleELSkill.getPuxandoEL() == true)
+					{
+
+						if( decaimentoBarreiraEl <= 0)
+						{
+
+							Destroy(gameObject);
+							controleELSkill.setPuxandoEL(false);
+
+						}
+
+						else
+						{
+
+							vitalidadeBarreiraEL -= decaimentoBarreiraEl;
+
+						}
+
+					}
+
+					else
+					{
+
+						controleELSkill.setIniciarPuxandoELInicio(true);
+
+					}
 					
+				}
+
+				else
+				{
+
+					controleELSkill.setPuxandoEL(false);
+					controleELSkill.setIniciarPuxandoELInicio(false);
+
 				}
 
 			}

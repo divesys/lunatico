@@ -511,11 +511,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.0377541
+      value: 35.9951553
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.06553936
+      value: 2.69916964
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1112,7 +1112,7 @@ Transform:
   m_PrefabInternal: {fileID: 318456993}
   m_GameObject: {fileID: 682563305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.0377541, y: 1.06553936, z: 0}
+  m_LocalPosition: {x: 35.9951553, y: 2.69916964, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1674795290}
@@ -1203,6 +1203,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2af50de7241ce424a9d294da9a42f3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  iniciarPuxandoELFinal: 0
+  anim: {fileID: 0}
 --- !u!114 &682563319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2580,6 +2582,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dentroDaRegiao: 0
   colisorPlayer: {fileID: 0}
+  vitalidadeBarreiraEL: 0
+  decaimentoBarreiraEl: 0
+  anim: {fileID: 0}
 --- !u!1001 &1431626368
 Prefab:
   m_ObjectHideFlags: 0
