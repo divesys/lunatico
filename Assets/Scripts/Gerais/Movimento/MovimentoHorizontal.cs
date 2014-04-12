@@ -47,7 +47,7 @@ public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento ho
 	{
 
 		anim = GetComponent<Animator>();
-		limiteEstatica = 0.45f;
+		limiteEstatica = 0.6f;
 		andando = false;
 
 	}

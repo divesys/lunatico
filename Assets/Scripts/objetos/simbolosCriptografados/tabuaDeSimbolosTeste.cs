@@ -45,13 +45,16 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 	public float posicaoXCaixa; // posicao da caixa, em x
 	public float posicaoYCaixa; // posicao da caixa, em y
 	public Collider2D colisorPlayer;
+
+	static public bool comprendeeuTexto;
 	
 	void Start() //incializa valores
 	{
 
-		menssagemCriptografada = "shaksaksjkah";
-		menssagemDecifrada = "nossa! voce pode ler!";
+		menssagemCriptografada = "O texto esta escrito em alguma lingua antiga, voce nao consegue entender";
+		menssagemDecifrada = "Quando entender o que esta guardado alem do oculto, teu caminho se abrira";
 		lendoTexto = false;
+
 	}
 
 	void OnTriggerEnter2D(Collider2D other) 
@@ -134,11 +137,13 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 			{
 
 				// da os dados da caixa de texto, e depois constroi uma
-				larguraDaCaixa = 150;
+				larguraDaCaixa = 460;
 				alturaCaixa = 25;
-				posicaoXCaixa = Screen.width/2-larguraDaCaixa;
-				posicaoYCaixa = Screen.height/2-alturaCaixa;
+				posicaoXCaixa = (Screen.width/2) - (larguraDaCaixa/2);
+				posicaoYCaixa = (Screen.height/2) - (alturaCaixa/2);
 				GUI.Box(new Rect(posicaoXCaixa,posicaoYCaixa,larguraDaCaixa,alturaCaixa), menssagemDecifrada);
+
+				comprendeeuTexto = true;
 
 			}
 
@@ -146,11 +151,12 @@ public class tabuaDeSimbolosTeste : MonoBehaviour
 			{
 
 				// da os dados da caixa de texto, e depois constroi uma
-				larguraDaCaixa = 100;
+				larguraDaCaixa = 450;
 				alturaCaixa = 25;
-				posicaoXCaixa = Screen.width/2-larguraDaCaixa;
-				posicaoYCaixa = Screen.height/2-alturaCaixa;
+				posicaoXCaixa = (Screen.width/2) - (larguraDaCaixa/2);
+				posicaoYCaixa = (Screen.height/2) - (alturaCaixa/2);
 				GUI.Box(new Rect(posicaoXCaixa,posicaoYCaixa,larguraDaCaixa,alturaCaixa), menssagemCriptografada);
+
 
 			}
 		}
