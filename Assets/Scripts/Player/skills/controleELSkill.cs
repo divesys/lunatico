@@ -95,6 +95,13 @@ public class controleELSkill : MonoBehaviour // uma skill que controla o fluxo d
 			
 		}
 
+		if(sugarBarreiraEL.barreiraSugada == true)
+		{
+
+			iniciarPuxandoELFinal = false;
+
+		}
+
 		if(iniciarPuxandoELFinal == true)
 		{
 

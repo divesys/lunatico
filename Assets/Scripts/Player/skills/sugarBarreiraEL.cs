@@ -42,6 +42,16 @@ public class sugarBarreiraEL : MonoBehaviour
 
 	public Animator anim;
 
+	static public bool barreiraSugada;
+
+
+	void Start()
+	{
+
+		vitalidadeBarreiraEL = 100;
+		decaimentoBarreiraEl = 1;
+
+	}
 	void OnTriggerEnter2D(Collider2D other) 
 	{
 		
@@ -50,7 +60,6 @@ public class sugarBarreiraEL : MonoBehaviour
 			
 			dentroDaRegiao = true;
 			colisorPlayer = other;
-			vitalidadeBarreiraEL = 10;
 			
 		}
 		
@@ -72,11 +81,12 @@ public class sugarBarreiraEL : MonoBehaviour
 					if(controleELSkill.getPuxandoEL() == true)
 					{
 
-						if( decaimentoBarreiraEl <= 0)
+						if( vitalidadeBarreiraEL <= 0)
 						{
 
-							Destroy(gameObject);
+							Destroy(transform.parent.gameObject);
 							controleELSkill.setPuxandoEL(false);
+							barreiraSugada = true;
 
 						}
 
