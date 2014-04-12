@@ -37,10 +37,12 @@ public class sugarBarreiraEL : MonoBehaviour
 {
 	public bool dentroDaRegiao; // verifica se esta dentro da regiao do objeto
 	public Collider2D colisorPlayer;
-	public int vitalidadeBarreiraEL; // o quanto de EL tem na barreira
-	public int decaimentoBarreiraEl; // o quanto de EL e retirado da barreira por frame
+	public float vitalidadeBarreiraEL; // o quanto de EL tem na barreira
+	public float decaimentoBarreiraEl; // o quanto de EL e retirado da barreira por frame
+	public float constanteDesaparecimento;
 
 	public Animator anim;
+	public Color cor;
 
 	static public bool barreiraSugada;
 
@@ -48,8 +50,10 @@ public class sugarBarreiraEL : MonoBehaviour
 	void Start()
 	{
 
-		vitalidadeBarreiraEL = 100;
-		decaimentoBarreiraEl = 1;
+		vitalidadeBarreiraEL = 100f;
+		decaimentoBarreiraEl = 1f;
+		cor = this.transform.parent.GetComponent<SpriteRenderer>().color;
+		constanteDesaparecimento = 1/(vitalidadeBarreiraEL/decaimentoBarreiraEl);
 
 	}
 	void OnTriggerEnter2D(Collider2D other) 
@@ -92,8 +96,11 @@ public class sugarBarreiraEL : MonoBehaviour
 
 						else
 						{
-
+							Debug.Log (constanteDesaparecimento);
 							vitalidadeBarreiraEL -= decaimentoBarreiraEl;
+							cor = this.transform.parent.GetComponent<SpriteRenderer>().color;
+							cor.a -= constanteDesaparecimento;
+							this.transform.parent.GetComponent<SpriteRenderer>().color = cor;
 
 						}
 
