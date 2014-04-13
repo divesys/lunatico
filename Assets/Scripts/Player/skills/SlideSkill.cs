@@ -37,12 +37,8 @@ public class SlideSkill : BaseSkill {
 	
 	public float velocidadeSlide; // velocidade do slide
 	private bool pisandoChao; // indica se o objeto esta no chao
-	public Vector2 tamanhoSlideCaindoCollider; // tamanho padrao do collider do slide executando
-	public Vector2 tamanhoSlideIniciandoCollider; // tamanho padrao do collider do slide executando
-	public Vector2 tamanhoSlideExecutandoCollider; // tamanho padrao do collider do slide executando
-	public Vector2 centroSlideCaindoCollider; // tamanho padrao do collider do slide executando
-	public Vector2 centroSlideIniciandoCollider; // tamanho padrao do collider do slide executando
-	public Vector2 centroSlideExecutandoCollider; // tamanho padrao do collider do slide executando
+	public Vector2 tamanhoSlideCollider; // tamanho padrao do collider do slide executando
+	public Vector2 centroSlideCollider; // tamanho padrao do collider do slide executando
 	private Vector2 tamanhoOriginalCollider; // tamanho do collider enquanto executa o slide
 	private Vector2 centroOriginalCollider; // tamanho do collider enquanto executa o slide
 
@@ -52,19 +48,15 @@ public class SlideSkill : BaseSkill {
 		this.tamanhoOriginalCollider = GetComponent<BoxCollider2D>().size;
 		this.centroOriginalCollider = GetComponent<BoxCollider2D>().center;
 
-		tamanhoSlideCaindoCollider = new Vector2(1.2f,1f);
-		centroSlideCaindoCollider = new Vector2(0f , -0.289f);
-		tamanhoSlideIniciandoCollider = new Vector2(1.68f, 0.86f);
-		centroSlideIniciandoCollider = new Vector2(0f,0.36f);
-		tamanhoSlideExecutandoCollider = new Vector2(1.68f, 0.86f);
-		centroSlideExecutandoCollider = new Vector2(0f,0.36f);
+		tamanhoSlideCollider = new Vector2(1.68f, 0.86f);
+		centroSlideCollider = new Vector2(0f,-0.36f);
 
 		anim = GetComponent<Animator>();
 	}
 	
 	protected override void Execute()
 	{
-		SlideCaindo();
+		Slide();
 	}
 	
 	protected override bool ValidateStopExecution()
@@ -76,35 +68,28 @@ public class SlideSkill : BaseSkill {
 	{
 		return base.ValidateExecution() && pisandoChao && !IsStatic();
 	}
-
-	private void SlideCaindo()
-	{
-
-		anim.SetBool("slideCaindo", true);
-
-
-	}
-
-	private void SlideIniciando()
-	{
-
-
-
-	}
 	
+
 	private void Slide()
 	{
 		float direcao = Input.GetAxis ("Horizontal");
 		rigidbody2D.AddForce(Vector2.right * velocidadeSlide * direcao);
-		
+
+		anim.SetBool("slide", true);
+
 		//this.GetComponent<SpriteRenderer>().sprite = spriteSlide;
-		GetComponent<BoxCollider2D>().size = tamanhoSlideExecutandoCollider;	
+		GetComponent<BoxCollider2D>().size = tamanhoSlideCollider;
+		GetComponent<BoxCollider2D>().center =centroSlideCollider;
 	}
 	
 	protected override void PosExecute()
 	{
 		base.PosExecute();
+
+		anim.SetBool("slide", false);
+
 		GetComponent<BoxCollider2D>().size = tamanhoOriginalCollider;
+		GetComponent<BoxCollider2D>().center = centroOriginalCollider;
 	}
 	
 	private bool IsStatic()
