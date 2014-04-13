@@ -55,7 +55,7 @@ public class EnemyShooter : MonoBehaviour {
 	{
 
 		GameObject player = GameObject.FindGameObjectWithTag("Player");
-		return !player.GetComponent<InvisibilitySkill>().IsExecuting();
+		return !player.GetComponent<InvisibilitySkill>().IsExecuting;
 
 	}
 	

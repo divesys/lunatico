@@ -9,7 +9,11 @@ public abstract class BaseSkill : MonoBehaviour {
 	public bool StopAfterTime;
 	
 	//private bool skillActive;
-	private bool executing;
+	public bool IsExecuting
+	{
+		set;
+		get;
+	}
 	
 	protected abstract void Execute();
 	
@@ -17,7 +21,7 @@ public abstract class BaseSkill : MonoBehaviour {
 		//skillActive = true;
 	}
 	
-	void Update () {
+	public virtual void Update () {
 		
 		if (ValidateExecution())
 		{
@@ -49,19 +53,19 @@ public abstract class BaseSkill : MonoBehaviour {
 	
 	protected virtual void PreExecute()
 	{
-		executing = true;
+		IsExecuting = true;
 		ChangeActivitiesComponents(false);
 	}
 	
 	protected virtual void PosExecute()
 	{
-		executing = false;
+		IsExecuting = false;
 		ChangeActivitiesComponents(true);
 	}
 	
 	protected virtual bool ValidateStopExecution()
 	{
-		return IsExecuting();
+		return IsExecuting;
 	}
 	
 	protected virtual bool ValidateExecution()
@@ -75,11 +79,6 @@ public abstract class BaseSkill : MonoBehaviour {
 		{
 			component.enabled = enabled;
 		}
-	}
-	
-	public bool IsExecuting()
-	{
-		return executing;
 	}
 	
 }
