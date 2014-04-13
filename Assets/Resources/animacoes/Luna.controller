@@ -38,6 +38,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
+  - m_Name: slideCaindo
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
@@ -85,6 +91,28 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: andando
+    m_EventTreshold: 0
+    m_ExitTime: 1
+  m_Atomic: 1
+  m_Solo: 0
+  m_Mute: 0
+--- !u!1101 &110116997
+Transition:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 
+  m_SrcState: {fileID: 110200000}
+  m_DstState: {fileID: 110254528}
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: andando
+    m_EventTreshold: 0
+    m_ExitTime: 1
+  - m_ConditionMode: 1
+    m_ConditionEvent: slideCaindo
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -353,7 +381,7 @@ State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: lunaSlide
+  m_Name: lunaSlideCaindo
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
@@ -459,7 +487,8 @@ StateMachine:
       - {fileID: 110102744}
     data:
       first: {fileID: 110200000}
-      second: []
+      second:
+      - {fileID: 110116997}
     data:
       first: {fileID: 110250190}
       second: []
