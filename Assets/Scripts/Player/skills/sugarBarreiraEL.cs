@@ -96,7 +96,7 @@ public class sugarBarreiraEL : MonoBehaviour
 
 						else
 						{
-							Debug.Log (constanteDesaparecimento);
+
 							vitalidadeBarreiraEL -= decaimentoBarreiraEl;
 							cor = this.transform.parent.GetComponent<SpriteRenderer>().color;
 							cor.a -= constanteDesaparecimento;
