@@ -6,11 +6,17 @@ public class Bullet : MonoBehaviour {
 	public float Speed;
 	
 	private GameObject player;
+
+	public GameObject Alvo
+	{
+		set;
+		get;
+	}
 	
 	// Use this for initialization
 	void Start () {
 		player = GameObject.FindGameObjectWithTag("Player");
-		transform.LookAt(player.transform);
+		transform.LookAt(Alvo.transform);
 	}
 	
 	// Update is called once per frame

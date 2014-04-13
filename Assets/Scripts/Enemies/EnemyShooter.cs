@@ -6,6 +6,7 @@ public class EnemyShooter : MonoBehaviour {
 	public GameObject bullet;
 	public float FireRate;
 	public float CollisionRadius;
+	public GameObject Alvo;
 	
 	private float nextFire;
 	
@@ -25,7 +26,7 @@ public class EnemyShooter : MonoBehaviour {
 	
 	private bool CanFire()
 	{
-		return (Time.time > nextFire) && (HasCollidedOnPlayer()) && (PlayerIsVisible());
+		return (Time.time > nextFire) && (PlayerIsVisible());
 	}
 	
 	private bool HasCollidedOnPlayer()
@@ -34,7 +35,7 @@ public class EnemyShooter : MonoBehaviour {
 		
 		foreach (Collider2D collider in colliders)
 		{
-			if (collider.tag.Equals("Player"))
+			if (collider.gameObject.Equals(Alvo))
 			{
 				return true;
 			}
@@ -42,10 +43,11 @@ public class EnemyShooter : MonoBehaviour {
 		
 		return false;
 	}
-	
+
 	private void Fire()
 	{
-		Instantiate(bullet, transform.position, transform.rotation);
+		GameObject bala = (GameObject) Instantiate(bullet, transform.position, transform.rotation);
+		bala.GetComponent<Bullet>().Alvo = Alvo;
 		nextFire = Time.time + FireRate;
 	}
 	
