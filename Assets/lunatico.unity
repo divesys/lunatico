@@ -1201,7 +1201,7 @@ Transform:
   m_PrefabInternal: {fileID: 1887251120}
   m_GameObject: {fileID: 682563305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 68.4544678, y: 2.1692853, z: 0}
+  m_LocalPosition: {x: 68.0549545, y: 2.451478, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1674795290}
@@ -1803,6 +1803,63 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1207985803}
+--- !u!1 &999100101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 999100103}
+  - 61: {fileID: 999100102}
+  - 114: {fileID: 999100104}
+  m_Layer: 0
+  m_Name: finalPercurso
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &999100102
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 999100101}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Size: {x: 20, y: 9}
+  m_Center: {x: 0, y: 0}
+--- !u!4 &999100103
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 999100101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 95.7891235, y: 4.77601671, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &999100104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 999100101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 613b5e58cc473d2408d6c353d6ed04b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menssagem: 
+  dentroDaRegiao: 0
+  larguraDaCaixa: 0
+  alturaCaixa: 0
+  posicaoXCaixa: 0
+  posicaoYCaixa: 0
+  colisorPlayer: {fileID: 0}
 --- !u!1 &1016820703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3390,11 +3447,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 68.4544678
+      value: 68.0549545
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.1692853
+      value: 2.451478
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.z
