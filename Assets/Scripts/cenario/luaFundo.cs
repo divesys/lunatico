@@ -5,9 +5,12 @@ public class luaFundo : MonoBehaviour
 {
 
 	public GameObject referenciaLuna;
-	private float posicaoLunaX;
-	public float posicaoAjusteX;
-	public float posicaoFinalX;
+	private float posicaoLunaAtualX;
+	private float posicaoLunaAnteriorX;
+	private float diferencaPosicaoLunaX;
+	public float fatorAjusteParallax;
+	private float posicaoAjusteX;
+	private float posicaoFinalX;
 	public float posicaoY;
 
 	// Use this for initialization
@@ -15,7 +18,9 @@ public class luaFundo : MonoBehaviour
 	{
 
 		referenciaLuna = GameObject.FindWithTag("Player");
-		posicaoAjusteX = 3;
+		posicaoLunaAnteriorX = referenciaLuna.transform.position.x;
+//		posicaoAjusteX = -5;
+//		fatorAjusteParallax = 2;
 	
 	}
 	
@@ -23,11 +28,22 @@ public class luaFundo : MonoBehaviour
 	void Update () 
 	{
 
-		posicaoLunaX = referenciaLuna.transform.position.x;
-		posicaoFinalX = posicaoLunaX + posicaoAjusteX;
+		posicaoLunaAtualX = referenciaLuna.transform.position.x;
 		posicaoY = this.transform.position.y;
 
+		if(posicaoLunaAtualX != posicaoLunaAnteriorX)
+		{
+			diferencaPosicaoLunaX = posicaoLunaAtualX - posicaoLunaAnteriorX;
+
+			posicaoAjusteX = posicaoAjusteX + (diferencaPosicaoLunaX  / fatorAjusteParallax);
+		
+		}
+
+		posicaoFinalX = posicaoLunaAtualX + posicaoAjusteX;
+
 		this.transform.position = new Vector3( posicaoFinalX, posicaoY, 0);
+
+		posicaoLunaAnteriorX = referenciaLuna.transform.position.x;
 	
 	}
 }
