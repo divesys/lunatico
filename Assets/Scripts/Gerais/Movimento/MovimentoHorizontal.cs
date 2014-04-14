@@ -35,12 +35,13 @@ using System.Collections;
 
 public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento horizontal
 {
-	public float forcaHorizontal = 0.45f; // forca que move o objeto horizontalmente
+	//public float forcaHorizontal = 0.45f; // forca que move o objeto horizontalmente
 
 	public Animator anim;
 	public bool andando;
 	public float limiteEstatica; //velocidade limite para considerar que o objeto nao esta mais parado
 	public float velocidadeX;
+	private float velocidadeY;
 	//public int velocidadeXInt;
 
 	void Start()
@@ -54,21 +55,32 @@ public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento ho
 
 	void FixedUpdate()
 	{
+		velocidadeY = this.transform.rigidbody2D.velocity.y;
+
 		if(Input.GetButton("Sprint")) // se o botao de sprint for apertado
 		{
 			//forcaHorizontal = 0.6f; // forca para velocidade do sprint, aproximadamente 10 m/s
 		}
 
-		else //velocidade normal
+		else if(Input.GetAxis ("Horizontal")) //velocidade normal
 		{
-			forcaHorizontal = 0.40f; // forca para velocidade do sprint, aproximadamente 6 m/s
+			//forcaHorizontal = 0.40f; // forca para velocidade do sprint, aproximadamente 6 m/s
+			velocidadeX = 5f;
+
+		}
+
+		else
+		{
+
+			velocidadeX = 0f;
+
 		}
 		float direcao = Input.GetAxis ("Horizontal"); // pega o eixo horizontal de movimento
-		rigidbody2D.AddForce(Vector2.right * forcaHorizontal * direcao); // aplica forca na direcao apertada, movendo o objeto
+		//rigidbody2D.AddForce(Vector2.right * forcaHorizontal * direcao); // aplica forca na direcao apertada, movendo o objeto
 
-		velocidadeX = this.transform.rigidbody2D.velocity.x;
+		//velocidadeX = this.transform.rigidbody2D.velocity.x;
 		//velocidadeXInt = (int) velocidadeXFloat;
-
+		this.transform.rigidbody2D.velocity = new Vector2(velocidadeX,velocidadeY);
 
 		if(velocidadeX > limiteEstatica || velocidadeX < (limiteEstatica*-1))
 		{
