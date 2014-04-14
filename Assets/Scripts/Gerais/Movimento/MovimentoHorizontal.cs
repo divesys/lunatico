@@ -56,17 +56,19 @@ public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento ho
 	void FixedUpdate()
 	{
 		velocidadeY = this.transform.rigidbody2D.velocity.y;
-
-		if(Input.GetButton("Sprint")) // se o botao de sprint for apertado
+		if(Input.GetAxis ("Horizontal") != 0)
 		{
-			//forcaHorizontal = 0.6f; // forca para velocidade do sprint, aproximadamente 10 m/s
-		}
+			if(Input.GetButton("Sprint")) // se o botao de sprint for apertado
+			{
+				//forcaHorizontal = 0.6f; // forca para velocidade do sprint, aproximadamente 10 m/s
+			}
 
-		else if(Input.GetAxis ("Horizontal")) //velocidade normal
-		{
-			//forcaHorizontal = 0.40f; // forca para velocidade do sprint, aproximadamente 6 m/s
-			velocidadeX = 5f;
+			else//velocidade normal
+			{
+				//forcaHorizontal = 0.40f; // forca para velocidade do sprint, aproximadamente 6 m/s
+				velocidadeX = 4f;
 
+			}
 		}
 
 		else
@@ -75,12 +77,13 @@ public class MovimentoHorizontal : MonoBehaviour // classe geral de movimento ho
 			velocidadeX = 0f;
 
 		}
+
 		float direcao = Input.GetAxis ("Horizontal"); // pega o eixo horizontal de movimento
 		//rigidbody2D.AddForce(Vector2.right * forcaHorizontal * direcao); // aplica forca na direcao apertada, movendo o objeto
 
 		//velocidadeX = this.transform.rigidbody2D.velocity.x;
 		//velocidadeXInt = (int) velocidadeXFloat;
-		this.transform.rigidbody2D.velocity = new Vector2(velocidadeX,velocidadeY);
+		this.transform.rigidbody2D.velocity = new Vector2(velocidadeX * direcao,velocidadeY);
 
 		if(velocidadeX > limiteEstatica || velocidadeX < (limiteEstatica*-1))
 		{
