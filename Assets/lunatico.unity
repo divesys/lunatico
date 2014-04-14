@@ -676,11 +676,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -30.237009
+      value: 35.5451813
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.21750855
+      value: .991633654
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1b9c596d41cf83a418e4f2ae67a3dfb8, type: 2}
       propertyPath: m_LocalPosition.z
@@ -742,6 +742,7 @@ GameObject:
   - 4: {fileID: 458842071}
   - 61: {fileID: 458842070}
   - 212: {fileID: 458842072}
+  - 95: {fileID: 458842073}
   m_Layer: 0
   m_Name: barreiraEL
   m_TagString: Untagged
@@ -758,7 +759,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 1.5, y: 8}
+  m_Size: {x: 1.10000002, y: 8}
   m_Center: {x: 0, y: 0}
 --- !u!4 &458842071
 Transform:
@@ -795,6 +796,20 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_Sprite: {fileID: 21300000, guid: 54406bca4387f19489c487d56bb600aa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &458842073
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 458842069}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b2dee6447f932fa47b4ceacd4a433f94, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!1 &469281550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1382,7 @@ Transform:
   m_PrefabInternal: {fileID: 450077102}
   m_GameObject: {fileID: 682563305}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.237009, y: 1.21750855, z: 0}
+  m_LocalPosition: {x: 35.5451813, y: .991633654, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1674795290}
