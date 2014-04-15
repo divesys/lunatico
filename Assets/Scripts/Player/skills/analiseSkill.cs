@@ -42,13 +42,18 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 	static public bool skillAnaliseAdquirida;  // verifica se a skill foi adiquirida
 	static public bool faseCorretaAnalise; // caso tenha sido adiquirida, verifica se festa na fase correta
 	static public bool skillAnaliseAtivada; // verifica se a skillAnalis esta sendo utilizada
+	public bool animacaoAnalise;
 	static private string faseDaLuaAtual;
+
+	Animator anim;
 
 	void Start()
 	{
 
 		skillAnaliseAdquirida = true;
 		skillAnaliseAtivada = false;
+
+		anim = GetComponent<Animator>();
 
 	}
 	
@@ -79,6 +84,7 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 			{
 
 				skillAnaliseAtivada = true;
+				animacaoAnalise = true;
 
 			}
 
@@ -86,6 +92,7 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 			{
 
 				skillAnaliseAtivada = false;
+				animacaoAnalise = false;
 
 			}
 
@@ -97,6 +104,8 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 			skillAnaliseAtivada = false;
 
 		}
+
+		anim.SetBool("analise", animacaoAnalise);
 
 	}
 
