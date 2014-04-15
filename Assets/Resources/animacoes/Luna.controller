@@ -85,6 +85,18 @@ Transition:
     m_ConditionEvent: analise
     m_EventTreshold: 0
     m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: puxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: iniciarAnimacaoPuxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: slide
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -103,6 +115,10 @@ Transition:
     m_ConditionEvent: andando
     m_EventTreshold: 0
     m_ExitTime: 1
+  - m_ConditionMode: 6
+    m_ConditionEvent: faseDaLua
+    m_EventTreshold: 2
+    m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -120,6 +136,10 @@ Transition:
   - m_ConditionMode: 1
     m_ConditionEvent: slide
     m_EventTreshold: 0
+    m_ExitTime: 1
+  - m_ConditionMode: 6
+    m_ConditionEvent: faseDaLua
+    m_EventTreshold: 2
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -161,6 +181,10 @@ Transition:
     m_ConditionEvent: analise
     m_EventTreshold: 0
     m_ExitTime: 1
+  - m_ConditionMode: 6
+    m_ConditionEvent: faseDaLua
+    m_EventTreshold: 1
+    m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -177,6 +201,10 @@ Transition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: andando
+    m_EventTreshold: 0
+    m_ExitTime: 1
+  - m_ConditionMode: 6
+    m_ConditionEvent: faseDaLua
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -201,23 +229,9 @@ Transition:
     m_ConditionEvent: puxandoEL
     m_EventTreshold: 0
     m_ExitTime: 1
-  m_Atomic: 1
-  m_Solo: 0
-  m_Mute: 0
---- !u!1101 &110131624
-Transition:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_SrcState: {fileID: 110250190}
-  m_DstState: {fileID: 110253541}
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: analise
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: faseDaLua
+    m_EventTreshold: 3
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -236,6 +250,10 @@ Transition:
   - m_ConditionMode: 1
     m_ConditionEvent: andando
     m_EventTreshold: 0
+    m_ExitTime: 1
+  - m_ConditionMode: 6
+    m_ConditionEvent: faseDaLua
+    m_EventTreshold: 3
     m_ExitTime: 1
   m_Atomic: 1
   m_Solo: 0
@@ -267,6 +285,14 @@ Transition:
     m_ConditionEvent: puxandoEL
     m_EventTreshold: 0
     m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: slide
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: analise
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -287,6 +313,22 @@ Transition:
     m_ExitTime: .899999976
   - m_ConditionMode: 2
     m_ConditionEvent: andando
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: puxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: iniciarAnimacaoPuxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: slide
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: analise
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -331,6 +373,22 @@ Transition:
     m_ExitTime: .899999976
   - m_ConditionMode: 2
     m_ConditionEvent: andando
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: puxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: iniciarAnimacaoPuxandoEL
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: slide
+    m_EventTreshold: 0
+    m_ExitTime: .899999976
+  - m_ConditionMode: 2
+    m_ConditionEvent: analise
     m_EventTreshold: 0
     m_ExitTime: .899999976
   m_Atomic: 1
@@ -395,6 +453,10 @@ Transition:
     m_ConditionEvent: puxandoEL
     m_EventTreshold: 0
     m_ExitTime: .75
+  - m_ConditionMode: 6
+    m_ConditionEvent: faseDaLua
+    m_EventTreshold: 3
+    m_ExitTime: .75
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
@@ -416,6 +478,10 @@ Transition:
   - m_ConditionMode: 2
     m_ConditionEvent: analise
     m_EventTreshold: 0
+    m_ExitTime: .75
+  - m_ConditionMode: 6
+    m_ConditionEvent: faseDaLua
+    m_EventTreshold: 1
     m_ExitTime: .75
   m_Atomic: 1
   m_Solo: 0
@@ -670,9 +736,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110253541}
-      second: []
-    data:
       first: {fileID: 0}
       second:
       - {fileID: 110100000}
@@ -689,8 +752,7 @@ StateMachine:
       - {fileID: 110109042}
     data:
       first: {fileID: 110250190}
-      second:
-      - {fileID: 110131624}
+      second: []
     data:
       first: {fileID: 110206682}
       second: []
@@ -720,6 +782,9 @@ StateMachine:
       - {fileID: 110181919}
     data:
       first: {fileID: 110252757}
+      second: []
+    data:
+      first: {fileID: 110253541}
       second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 48, y: 96, z: 0}
