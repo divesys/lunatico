@@ -44,6 +44,8 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 	static public bool skillAnaliseAtivada; // verifica se a skillAnalis esta sendo utilizada
 	public bool animacaoAnalise;
 	static private string faseDaLuaAtual;
+	//private GameObject coruja;
+	//private AudioSource somCoruja;
 
 	Animator anim;
 
@@ -54,6 +56,10 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 		skillAnaliseAtivada = false;
 
 		anim = GetComponent<Animator>();
+
+		//coruja = GameObject.Find("corujaAnalise");
+
+		//somCoruja = coruja.audio;
 
 	}
 	
@@ -82,19 +88,26 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 
 			if(skillAnaliseAtivada == false) // se estiver desativada, ativa
 			{
-
+				
+				
 				skillAnaliseAtivada = true;
+				//somCoruja.Play ();
 				animacaoAnalise = true;
-
+				anim.SetBool("analise", animacaoAnalise);
+				
+				
 			}
 
-			else // caso contrario, desativa
+			else if(skillAnaliseAtivada == true) // caso contrario, desativa
 			{
-
+				
 				skillAnaliseAtivada = false;
 				animacaoAnalise = false;
-
+				anim.SetBool("analise", animacaoAnalise);
+				
 			}
+
+			anim.SetBool("analise", animacaoAnalise);
 
 		}
 
@@ -105,7 +118,8 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 
 		}
 
-		anim.SetBool("analise", animacaoAnalise);
+
+
 
 	}
 

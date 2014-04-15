@@ -33,8 +33,6 @@ public class luaFundo : MonoBehaviour
 		posicaoLunaAtualX = referenciaLuna.transform.position.x;
 		posicaoY = this.transform.position.y;
 
-		Debug.Log (referenciaLuna.transform.rigidbody2D.velocity.x);
-
 		if(referenciaLuna.transform.rigidbody2D.velocity.x > 0.01)
 		{
 
