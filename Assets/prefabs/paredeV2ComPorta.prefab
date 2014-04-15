@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   podeAbrirPorta: 0
+  portaAberta: 0
   anim: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:

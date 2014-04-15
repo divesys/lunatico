@@ -6,10 +6,8 @@ public class luaFundo : MonoBehaviour
 
 	public GameObject referenciaLuna;
 	private float posicaoLunaAtualX;
-	private float posicaoLunaAnteriorX;
-	private float diferencaPosicaoLunaX;
 	public float fatorAjusteParallax;
-	private float posicaoAjusteX;
+	public float posicaoAjusteX;
 	private float posicaoFinalX;
 	public float posicaoY;
 
@@ -18,32 +16,48 @@ public class luaFundo : MonoBehaviour
 	{
 
 		referenciaLuna = GameObject.FindWithTag("Player");
-		posicaoLunaAnteriorX = referenciaLuna.transform.position.x;
 //		posicaoAjusteX = -5;
 //		fatorAjusteParallax = 2;
+		posicaoY = this.transform.position.y;
+		posicaoLunaAtualX = referenciaLuna.transform.position.x;
+		posicaoFinalX = posicaoLunaAtualX + posicaoAjusteX;
+
+		this.transform.position = new Vector2( posicaoFinalX, posicaoY );
 	
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
 
 		posicaoLunaAtualX = referenciaLuna.transform.position.x;
 		posicaoY = this.transform.position.y;
 
-		if(posicaoLunaAtualX != posicaoLunaAnteriorX)
-		{
-			diferencaPosicaoLunaX = posicaoLunaAtualX - posicaoLunaAnteriorX;
+		Debug.Log (referenciaLuna.transform.rigidbody2D.velocity.x);
 
-			posicaoAjusteX = posicaoAjusteX + (diferencaPosicaoLunaX  / fatorAjusteParallax);
+		if(referenciaLuna.transform.rigidbody2D.velocity.x > 0.01)
+		{
+
+			posicaoAjusteX = posicaoAjusteX + (referenciaLuna.transform.rigidbody2D.velocity.x / fatorAjusteParallax);
+
+			posicaoFinalX = posicaoLunaAtualX + posicaoAjusteX;
+
 		
 		}
 
-		posicaoFinalX = posicaoLunaAtualX + posicaoAjusteX;
+		if(referenciaLuna.transform.rigidbody2D.velocity.x < 0.01)
+		{
+			
+			posicaoAjusteX = posicaoAjusteX + (referenciaLuna.transform.rigidbody2D.velocity.x / fatorAjusteParallax);
+			
+			posicaoFinalX = posicaoLunaAtualX + posicaoAjusteX;
+		
+			
+		}
 
-		this.transform.position = new Vector3( posicaoFinalX, posicaoY, 0);
+		this.transform.position = new Vector2( posicaoFinalX, posicaoY );
 
-		posicaoLunaAnteriorX = referenciaLuna.transform.position.x;
+		//posicaoAjusteX = posicaoAjusteX - fatorAjusteParallax;
 	
 	}
 }
