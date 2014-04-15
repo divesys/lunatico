@@ -66,7 +66,6 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 	void Update() 
 	{
 
-
 		faseDaLuaAtual = simuladorDaFaseDaLua.faseDaLuaSimulada;
 
 		if(faseDaLuaAtual == "crescente") // se a analise foi adquirida e eh lua cheia
@@ -86,7 +85,17 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 		if(faseCorretaAnalise == true && skillAnaliseAdquirida == true &&  Input.GetButtonDown("skill")) // se estiver na fase da lua correta, a skill ja foi adiquirida e o botao de skill for precionado
 		{
 
-			if(skillAnaliseAtivada == false) // se estiver desativada, ativa
+			if(skillAnaliseAtivada == true) // caso contrario, desativa
+			{
+				
+				skillAnaliseAtivada = false;
+				animacaoAnalise = false;
+				anim.SetBool("analise", animacaoAnalise);
+				
+			}
+
+
+			else if(skillAnaliseAtivada == false) // se estiver desativada, ativa
 			{
 				
 				
@@ -98,16 +107,6 @@ public class analiseSkill : MonoBehaviour // uma skill que consegue extrair info
 				
 			}
 
-			else if(skillAnaliseAtivada == true) // caso contrario, desativa
-			{
-				
-				skillAnaliseAtivada = false;
-				animacaoAnalise = false;
-				anim.SetBool("analise", animacaoAnalise);
-				
-			}
-
-			anim.SetBool("analise", animacaoAnalise);
 
 		}
 
